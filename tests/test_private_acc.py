@@ -8,7 +8,6 @@ from pages.main_page import MainPage
 from pages.profile_page import ProfilePage
 from tests import data
 
-import time
 
 
 class TestPrivate:
@@ -33,7 +32,6 @@ class TestPrivate:
         main_page.wait_for_visibility_of_element(MainPageLocators.MAIN_BURGER_HEADER)
         main_page.click_on_private_acc_button()
         profile_page = ProfilePage(driver)
-        time.sleep(5)
         profile_page.wait_for_visibility_of_element(ProfilePageLocators.PROFILE_TITLE)
         assert profile_page.take_current_url() == data.Urls.PROFILE_PAGE_URL
         assert profile_page.find_element(ProfilePageLocators.PROFILE_TITLE).text == data.Data.PROFILE_TITLE_TEXT
@@ -68,7 +66,6 @@ class TestPrivate:
         profile_page = ProfilePage(driver)
         profile_page.wait_for_visibility_of_element(ProfilePageLocators.PROFILE_TITLE)
         profile_page.logout()
-        time.sleep(5)
         login_page = LoginPage(driver)
         login_page.wait_for_visibility_of_element(LoginPageLocators.TITLE_LOGIN_PAGE)
         assert login_page.take_current_url() == data.Urls.LOGIN_PAGE_URL

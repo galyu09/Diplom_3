@@ -6,7 +6,6 @@ from pages.main_page import MainPage
 from pages.orders_feed_page import OrdersFeedPage
 from pages.orders_history_page import OrdersHistoryPage
 
-import time
 
 
 class TestOrderList:
@@ -27,7 +26,6 @@ class TestOrderList:
         main_page.click_on_order_button()
         # подтверждение заказа
         main_page.wait_order_confirm_header()
-        time.sleep(5)
         main_page.close_order_confirm_modal()
         # переход в ленту заказов
         main_page.move_to_orders_feed()
@@ -75,7 +73,6 @@ class TestOrderList:
         main_page.add_ingredient_to_order(2)
         main_page.click_on_order_button()
         main_page.wait_order_confirm_header()
-        time.sleep(5)
         main_page.close_order_confirm_modal()
         # переход к истории заказов
         main_page.click_on_private_acc_button()
@@ -114,7 +111,6 @@ class TestOrderList:
         main_page.add_ingredient_to_order(2)
         main_page.click_on_order_button()
         main_page.wait_order_confirm_header()
-        time.sleep(5)
         main_page.close_order_confirm_modal()
         main_page.move_to_orders_feed()
         orders_feed_page = OrdersFeedPage(driver)
@@ -132,7 +128,6 @@ class TestOrderList:
         login_page.click_on_enter_button()
         # получение исходного значение счётчика
         main_page = MainPage(driver)
-        time.sleep(5)
         main_page.move_to_orders_feed()
         orders_feed_page = OrdersFeedPage(driver)
         today_counter1 = orders_feed_page.get_current_counter_today()
@@ -145,7 +140,6 @@ class TestOrderList:
         main_page.click_on_order_button()
         # Закрываем модалку, переходим к ленте заказов
         main_page.wait_order_confirm_header()
-        time.sleep(5)
         main_page.close_order_confirm_modal()
         main_page.move_to_orders_feed()
         orders_feed_page = OrdersFeedPage(driver)

@@ -7,7 +7,7 @@ from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.orders_feed_page import OrdersFeedPage
 from tests import data
-import time
+
 
 
 class TestOrderConstructor:
@@ -68,7 +68,5 @@ class TestOrderConstructor:
         main_page.add_ingredient_to_order(0)
         main_page.add_ingredient_to_order(2)
         main_page.click_on_order_button()
-        time.sleep(5)
         main_page.wait_visibility_of_modal()
-        time.sleep(5)
         assert main_page.get_order_status == data.Data.ORDER_CONFIRM_MODAL_HEADER_TEXT

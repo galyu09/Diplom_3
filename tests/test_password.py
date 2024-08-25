@@ -36,7 +36,6 @@ class TestResetPassword:
         forgot_passport_page = ForgotPasswortPage(driver)
         forgot_passport_page.fill_input_login()
         forgot_passport_page.click_on_reset_password_button()
-        time.sleep(5)
         reset_pasp_page = ResetPasswortPage(driver)
         text = reset_pasp_page.find_element(ResetPasswordLocators.RESET_PASSPORT_HEADER).text
         assert reset_pasp_page.take_current_url() == data.Urls.RESET_PASSWORD_URl
@@ -51,7 +50,6 @@ class TestResetPassword:
         forgot_passport_page = ForgotPasswortPage(driver)
         forgot_passport_page.fill_input_login()
         forgot_passport_page.click_on_reset_password_button()
-        # time.sleep(5)
         reset_pasp_page = ResetPasswortPage(driver)
         reset_pasp_page.fill_new_input_password()
         reset_pasp_page.click_on_show_eye()
