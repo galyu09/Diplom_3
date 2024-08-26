@@ -40,9 +40,6 @@ class BasePage:
     def take_current_url(self):
         return self.driver.current_url
 
-    # @allure.step('Переключаемся на другую вкладку')
-    # def switch_to_window(self, tab_count):
-    #     self.driver.switch_to.window(self.driver.window_handles[tab_count])
 
     @allure.step('Получаем значение атрибута элемента')
     def get_attribute(self, locator, attribute):
@@ -68,12 +65,14 @@ class BasePage:
     def check_element_is_displayed(self, locator):
         return self.driver.find_element(*locator).is_displayed()
 
+    @allure.step('Ожидаем модальное окно с реальным номером')
     def wait_real_order_id(self, locator):
         WebDriverWait(self.driver, 30).until_not(
             lambda driver: driver.find_element(*locator).text == "9999"
         )
         return self.find_element(locator).text
 
+    @allure.step('Приводим номер к нужному формату')
     @staticmethod
     def format_locator(locator, value):
         return locator[0], locator[1].format(value)

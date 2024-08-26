@@ -8,7 +8,6 @@ from pages.main_page import MainPage
 from pages.reset_password_page import ResetPasswortPage
 from tests import data
 
-import time
 
 
 class TestResetPassword:

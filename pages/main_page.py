@@ -45,10 +45,14 @@ class MainPage(BasePage):
     def find_ingredient_modal(self):
         return self.is_element_exist(MainPageLocators.INGREDIENT_MODAL)
 
+    @allure.step('Получаем текст хэдера')
+    def get_header_text(self):
+        self.wait_for_visibility_of_element(MainPageLocators.MAIN_BURGER_HEADER)
+        return self.find_element(MainPageLocators.MAIN_BURGER_HEADER).text
+
     @allure.step('Добавляем ингредиент в заказ')
     def add_ingredient_to_order(self, index):
         ingredients = self.get_visible_elements(MainPageLocators.LIST_OF_INGREDIENTS)
-        print(ingredients)
         basket = self.find_element(MainPageLocators.BURGER_CONSTRUCTOR)
         self.drag_and_drop(ingredients[index], basket)
 

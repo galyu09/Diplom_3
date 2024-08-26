@@ -41,5 +41,11 @@ class OrdersFeedPage(BasePage):
             OrdersFeedLocators.ORDER_NUMBERS_LIST))
         return orders_feed_list
 
+    @allure.step('Получаем текст хэдера в ленте заказов')
+    def get_orders_feed_header_text(self):
+        self.wait_for_visibility_of_element(OrdersFeedLocators.ORDERS_FEED_HEADER)
+        return self.find_element(OrdersFeedLocators.ORDERS_FEED_HEADER).text
+
+
 
 

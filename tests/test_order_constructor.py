@@ -2,7 +2,6 @@ import allure
 import pytest
 
 from locators.main_page_locators import MainPageLocators
-from locators.orders_feed_locators import OrdersFeedLocators
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.orders_feed_page import OrdersFeedPage
@@ -16,8 +15,7 @@ class TestOrderConstructor:
     def test_click_on_constructor_button(self, driver):
         main_page = MainPage(driver)
         main_page.move_to_constructor()
-        main_page.wait_for_visibility_of_element(MainPageLocators.MAIN_BURGER_HEADER)
-        assert main_page.find_element(MainPageLocators.MAIN_BURGER_HEADER).text == data.Data.MAIN_BURGER_HEADER_TEXT
+        assert main_page.get_header_text == data.Data.MAIN_BURGER_HEADER_TEXT
 
     @allure.title('Переход по кнопке лента Заказов')
     @allure.description('Проверяем переход на экран Ленты заказов тапом по кнопке')
@@ -25,8 +23,7 @@ class TestOrderConstructor:
         main_page = MainPage(driver)
         main_page.move_to_orders_feed()
         orders_feed_page = OrdersFeedPage(driver)
-        orders_feed_page.wait_for_visibility_of_element(OrdersFeedLocators.ORDERS_FEED_HEADER)
-        assert orders_feed_page.find_element(OrdersFeedLocators.ORDERS_FEED_HEADER).text == data.Data.ORDERS_FEED_HEADER_TEXT
+        assert orders_feed_page.get_orders_feed_header_text == data.Data.ORDERS_FEED_HEADER_TEXT
         assert orders_feed_page.take_current_url() == data.Urls.ORDER_FEED_URL
 
     @allure.title('Детали ингридиента')
