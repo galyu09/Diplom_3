@@ -1,7 +1,6 @@
 import allure
 import pytest
 
-from locators.main_page_locators import MainPageLocators
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.orders_feed_page import OrdersFeedPage
@@ -61,7 +60,7 @@ class TestOrderConstructor:
         login_page.fill_user_data_fields()
         login_page.click_on_enter_button()
         main_page = MainPage(driver)
-        main_page.wait_for_visibility_of_element(MainPageLocators.MAIN_BURGER_HEADER)
+        main_page.wait_for_main_header()
         main_page.add_ingredient_to_order(0)
         main_page.add_ingredient_to_order(2)
         main_page.click_on_order_button()

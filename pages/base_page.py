@@ -19,7 +19,7 @@ class BasePage:
 
     @allure.step('Дождаться загрузки элемента')
     def wait_for_visibility_of_element(self, locator):
-        WebDriverWait(self.driver, 30).until(
+        WebDriverWait(self.driver, 50).until(
             EC.visibility_of_element_located(locator))
 
     @allure.step('Дождаться, когда элемент станет кликабельным')

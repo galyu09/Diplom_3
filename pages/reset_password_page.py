@@ -23,3 +23,7 @@ class ResetPasswortPage(BasePage):
     @allure.step('Проверяем активно (подсвечивается) ли поле ввода нового пароля')
     def is_password_field_active(self):
         return 'input_status_active' in self.get_attribute(ResetPasswordLocators.NEW_PASSWORD_ELEMENT_DIV, 'class')
+
+    @allure.step('Ждем загрузки страницы по хедеру')
+    def wait_for_rp_header(self):
+        return self.find_element(ResetPasswordLocators.RESET_PASSPORT_HEADER).text

@@ -89,6 +89,13 @@ class MainPage(BasePage):
     def get_order_id(self):
         return self.wait_real_order_id(MainPageLocators.ORDER_NUMBER)
 
+    @allure.step("Ждем прогрузки страницы")
+    def wait_for_main_header(self):
+        self.wait_for_visibility_of_element(MainPageLocators.MAIN_BURGER_HEADER)
+
+
+
+
 
 
 

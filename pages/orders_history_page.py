@@ -17,4 +17,5 @@ class OrdersHistoryPage(BasePage):
 
     @allure.step('Получаем номер первого заказа из истории')
     def get_first_order_id(self):
-        self.find_element(OrdersHistoryLocators.FIRST_ORDER_ID).text
+        return self.find_element(OrdersHistoryLocators.FIRST_ORDER_ID).text
+

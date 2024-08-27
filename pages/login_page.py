@@ -13,7 +13,6 @@ class LoginPage(BasePage):
     @allure.step("Заполнение полей для авторизации")
     def fill_user_data_fields(self):
         self.wait_for_visibility_of_element(LoginPageLocators.TITLE_LOGIN_PAGE)
-        # test_data = helpers.get_user_data()
         self.fill_input_field(LoginPageLocators.EMAIL_FIELD, Data.EMAIL)
         self.fill_input_field(LoginPageLocators.PASSWORD_FIELD, Data.PASSWORD)
 
@@ -26,3 +25,9 @@ class LoginPage(BasePage):
     def go_to_orders_history(self):
         self.wait_for_element_to_be_clickable(LoginPageLocators.ORDERS_HISTORY_BUTTON)
         self.click_on_element(LoginPageLocators.ORDERS_HISTORY_BUTTON)
+
+    @allure.step('Получаем текст заголовка страницы авторизации')
+    def get_login_page_header_text(self):
+        self.wait_for_visibility_of_element(LoginPageLocators.TITLE_LOGIN_PAGE)
+        return self.find_element(LoginPageLocators.TITLE_LOGIN_PAGE).text
+

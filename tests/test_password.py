@@ -1,12 +1,11 @@
 import allure
 
-from locators.forgot_passport_page_locators import SetPasswordPageLocators
-from locators.reset_password_locators import ResetPasswordLocators
 from pages.forgot_password_page import ForgotPasswortPage
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.reset_password_page import ResetPasswortPage
 from tests import data
+
 
 
 
@@ -20,7 +19,7 @@ class TestResetPassword:
         login_page = LoginPage(driver)
         login_page.click_on_reset_password_button()
         forgot_passport_page = ForgotPasswortPage(driver)
-        text = forgot_passport_page.find_element(SetPasswordPageLocators.PASSWORD_SET_HEADER).text
+        text = forgot_passport_page.get_passport_header_text
         assert text == data.Data.PASSWORD_RESET_HEADER_TEXT
         assert forgot_passport_page.take_current_url() == data.Urls.FORGOT_PAGE_URL
 
@@ -36,7 +35,7 @@ class TestResetPassword:
         forgot_passport_page.fill_input_login()
         forgot_passport_page.click_on_reset_password_button()
         reset_pasp_page = ResetPasswortPage(driver)
-        text = reset_pasp_page.find_element(ResetPasswordLocators.RESET_PASSPORT_HEADER).text
+        text = reset_pasp_page.wait_for_rp_header
         assert reset_pasp_page.take_current_url() == data.Urls.RESET_PASSWORD_URl
         assert text == data.Data.PASSWORD_RESET_HEADER_TEXT
 

@@ -13,3 +13,11 @@ class ProfilePage(BasePage):
     def logout(self):
         self.wait_for_element_to_be_clickable(ProfilePageLocators.LOGOUT_BUTTON)
         self.click_on_element(ProfilePageLocators.LOGOUT_BUTTON)
+
+    @allure.step('Ждем прогрузки страницы профиля по заголовку')
+    def wait_for_profile_page_header(self):
+        self.wait_for_visibility_of_element(ProfilePageLocators.PROFILE_TITLE)
+
+    @allure.step('Получаем текст заголовка страницы профиля')
+    def get_profile_page_header_text(self):
+        return self.find_element(ProfilePageLocators.PROFILE_TITLE).text

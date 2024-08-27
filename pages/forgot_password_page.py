@@ -21,6 +21,11 @@ class ForgotPasswortPage(BasePage):
         self.wait_for_visibility_of_element(SetPasswordPageLocators.PASSWORD_SET_HEADER)
         self.click_on_element(SetPasswordPageLocators.EMAIL_INPUT_FIELD)
 
+    @allure.step('Ищем заголовок страницы восстановления пароля')
+    def get_passport_header_text(self):
+        self.wait_for_visibility_of_element(SetPasswordPageLocators.PASSWORD_SET_HEADER)
+        return self.find_element(SetPasswordPageLocators.PASSWORD_SET_HEADER).text
+
 
 
 

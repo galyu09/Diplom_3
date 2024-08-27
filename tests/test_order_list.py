@@ -1,6 +1,4 @@
 import allure
-
-from locators.main_page_locators import MainPageLocators
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.orders_feed_page import OrdersFeedPage
@@ -20,7 +18,7 @@ class TestOrderList:
         login_page.click_on_enter_button()
         # оформление заказа
         main_page = MainPage(driver)
-        main_page.wait_for_visibility_of_element(MainPageLocators.MAIN_BURGER_HEADER)
+        main_page.wait_for_main_header()
         main_page.add_ingredient_to_order(0)
         main_page.add_ingredient_to_order(2)
         main_page.click_on_order_button()
@@ -44,7 +42,7 @@ class TestOrderList:
         login_page.click_on_enter_button()
         # оформление заказа
         main_page = MainPage(driver)
-        main_page.wait_for_visibility_of_element(MainPageLocators.MAIN_BURGER_HEADER)
+        main_page.wait_for_main_header()
         main_page.add_ingredient_to_order(0)
         main_page.add_ingredient_to_order(2)
         main_page.click_on_order_button()
@@ -68,7 +66,7 @@ class TestOrderList:
         login_page.click_on_enter_button()
         # оформление заказа
         main_page = MainPage(driver)
-        main_page.wait_for_visibility_of_element(MainPageLocators.MAIN_BURGER_HEADER)
+        main_page.wait_for_main_header()
         main_page.add_ingredient_to_order(0)
         main_page.add_ingredient_to_order(2)
         main_page.click_on_order_button()
@@ -106,7 +104,7 @@ class TestOrderList:
         orders_feed_page.go_to_main()
         # оформление заказа
         main_page = MainPage(driver)
-        main_page.wait_for_visibility_of_element(MainPageLocators.MAIN_BURGER_HEADER)
+        main_page.wait_for_main_header()
         main_page.add_ingredient_to_order(0)
         main_page.add_ingredient_to_order(2)
         main_page.click_on_order_button()
@@ -134,7 +132,7 @@ class TestOrderList:
         orders_feed_page.go_to_main()
         # оформление заказа
         main_page = MainPage(driver)
-        main_page.wait_for_visibility_of_element(MainPageLocators.MAIN_BURGER_HEADER)
+        main_page.wait_for_main_header()
         main_page.add_ingredient_to_order(0)
         main_page.add_ingredient_to_order(2)
         main_page.click_on_order_button()
